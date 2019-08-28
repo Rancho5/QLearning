@@ -6,11 +6,7 @@ import pandas as pd
 import time
 
 
-
 np.random.seed(2)  # reproducible
-
-
-
 
 
 N_STATES = 6   # the length of the 1 dimensional world
@@ -184,9 +180,6 @@ def rl():
             step_counter += 1
 
     return q_table
-
-
-
 
 
 if __name__ == "__main__":
