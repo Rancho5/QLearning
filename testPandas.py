@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 # s = pd.Series([1, 2, 3, 4, np.nan], index=[1, 2, 3, 4, 5])
 # print(s)
@@ -73,8 +74,7 @@ import numpy as np
 # print(df4.append(pd.DataFrame(np.arange(3, 7).reshape(1, 4)), ignore_index=True))
 
 
-# merge
-
+# # merge
 # df1 = pd.DataFrame({'key': ['k0', 'k1', 'k2', 'k3'],
 #                     'A': ['a1', 'a2', 'a3', 'a4'],
 #                     'B': ['b1', 'b2', 'b3', 'b4']},
@@ -91,16 +91,26 @@ import numpy as np
 # res3 = pd.merge(df1, df2, on=['key'], left_index=True, right_index=True, how='outer')
 # print(res2)
 
-boys = pd.DataFrame({'id': ['id0', 'id1', 'id2'],
-                     'age': [22, 23, 24]})
-girls = pd.DataFrame({'id': ['id0', 'id1', 'id2'],
-                      'age': [23, 24, 25]})
-print(boys)
-print(girls)
-res4 = pd.merge(boys, girls, on='id', suffixes=['_boy', '_girl'])
-print(res4)
+# boys = pd.DataFrame({'id': ['id0', 'id1', 'id2'],
+#                      'age': [22, 23, 24]})
+# girls = pd.DataFrame({'id': ['id0', 'id1', 'id2'],
+#                       'age': [23, 24, 25]})
+# print(boys)
+# print(girls)
+# res4 = pd.merge(boys, girls, on='id', suffixes=['_boy', '_girl'])
+# print(res4)
 
+# data = pd.Series(np.random.randn(1000), index=np.arange(1000))
+# data.cumsum()
+# data.plot()
+# plt.show()
 
+data2 = pd.DataFrame(np.random.randn(1000, 4), index=np.arange(1000), columns=list('ABCD'))
+data2.cumsum()
+data2.plot()
+ax = data2.plot.scatter(x='A', y='B', color='Black', label = 'Class1')
+data2.plot.scatter(x='A', y='C', color='Yellow', label='Class2', ax=ax)
+plt.show()
 
 
 
