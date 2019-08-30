@@ -59,18 +59,57 @@ import numpy as np
 # data.to_pickle('student.pickle')
 
 
-# concatenating
-df1 = pd.DataFrame(np.ones((3, 4))*0, columns=['a', 'b', 'c', 'd'])
-df2 = pd.DataFrame(np.ones((3, 4))*1, columns=['a', 'b', 'c', 'd'])
-df3 = pd.DataFrame(np.ones((3, 4))*2, columns=['a', 'b', 'c', 'd'])
-print(pd.concat([df1, df2, df3], axis=0, ignore_index=True))
+# # concatenating
+# df1 = pd.DataFrame(np.ones((3, 4))*0, columns=['a', 'b', 'c', 'd'])
+# df2 = pd.DataFrame(np.ones((3, 4))*1, columns=['a', 'b', 'c', 'd'])
+# df3 = pd.DataFrame(np.ones((3, 4))*2, columns=['a', 'b', 'c', 'd'])
+# print(pd.concat([df1, df2, df3], axis=0, ignore_index=True))
+#
+# df4 = pd.DataFrame(np.ones((3, 4))*1, index=np.arange(3), columns=['a', 'b', 'c', 'd'])
+# df5 = pd.DataFrame(np.ones((3, 4))*2, index=np.arange(1, 4), columns=['b', 'c', 'd', 'e'])
+# print(pd.concat([df4, df5], axis=0, join_axes=[df4.columns]))
+#
+# print(df4)
+# print(df4.append(pd.DataFrame(np.arange(3, 7).reshape(1, 4)), ignore_index=True))
 
-df4 = pd.DataFrame(np.ones((3, 4))*1, index=np.arange(3), columns=['a', 'b', 'c', 'd'])
-df5 = pd.DataFrame(np.ones((3, 4))*2, index=np.arange(1, 4), columns=['b', 'c', 'd', 'e'])
-print(pd.concat([df4, df5], axis=0, join_axes=[df4.columns]))
 
-print(df4)
-print(df4.append(pd.DataFrame(np.arange(3, 7).reshape(1, 4)), ignore_index=True))
+# merge
+
+# df1 = pd.DataFrame({'key': ['k0', 'k1', 'k2', 'k3'],
+#                     'A': ['a1', 'a2', 'a3', 'a4'],
+#                     'B': ['b1', 'b2', 'b3', 'b4']},
+#                    index=[0, 1, 2, 3])
+# df2 = pd.DataFrame({'key': ['k0', 'k1', 'k2', 'k4'],
+#                     'A': ['c1', 'c2', 'c3', 'c4'],
+#                     'D': ['d1', 'd2', 'd3', 'd4']},
+#                    index=[1, 2, 3, 4])
+# print(df1)
+# print(df2)
+# res1 = pd.merge(df1, df2, on=['key', 'A'], how='left', indicator='indicator', )
+# print(res1)
+# res2 = pd.merge(df1, df2, left_index=True, right_index=True, how='outer')
+# res3 = pd.merge(df1, df2, on=['key'], left_index=True, right_index=True, how='outer')
+# print(res2)
+
+boys = pd.DataFrame({'id': ['id0', 'id1', 'id2'],
+                     'age': [22, 23, 24]})
+girls = pd.DataFrame({'id': ['id0', 'id1', 'id2'],
+                      'age': [23, 24, 25]})
+print(boys)
+print(girls)
+res4 = pd.merge(boys, girls, on='id', suffixes=['_boy', '_girl'])
+print(res4)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
